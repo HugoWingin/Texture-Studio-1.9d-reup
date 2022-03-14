@@ -1,0 +1,6 @@
+C:\Users\serve\Desktop\Texture-Studio-1.9d-reup\gamemodes\bare.pwn(50) : ๎๘่แ๊เ 029: ํๅ๏๐เโ่๋ํ๎ๅ โ๛๐เๆๅํ่ๅ, ๏๐่ํ๒ ํ๎๋
+C:\Users\serve\Desktop\Texture-Studio-1.9d-reup\gamemodes\bare.pwn(56) : ๎๘่แ๊เ 017: ํๅ๎แ๚โ๋ๅํํ๛้ ๑่์โ๎๋ "params"
+Pawn compiler 3.2.3664	 	 	Copyright (c) 1997-2016, ITB CompuPhase
+
+
+ฮ๘่แ๎๊:2.

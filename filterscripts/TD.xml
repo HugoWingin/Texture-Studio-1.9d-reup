@@ -1,0 +1,2923 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<?xml-stylesheet href="file:///C|/Users/serve/Desktop/Black Woods 0.1.3/pawno/xml/pawndoc.xsl" type="text/xsl"?>
+<doc source="C:\Users\serve\Desktop\Texture-Studio-1.9d-reup\filterscripts\TD.pwn">
+	<assembly>
+		<name>TD.pwn</name>
+	</assembly>
+	<members>
+
+		<!-- enumerations -->
+		<member name="T:enum_pData" value="140">
+			<tagname value="enum_pData"/>
+			<member name="C:P_Editing" value="0">
+				<tagname value="bool"/>
+			</member>
+			<member name="C:P_DialogPage" value="1">
+			</member>
+			<member name="C:P_CurrentTextdraw" value="2">
+			</member>
+			<member name="C:P_CurrentMenu" value="3">
+			</member>
+			<member name="C:P_KeyEdition" value="4">
+			</member>
+			<member name="C:P_Aux" value="5">
+			</member>
+			<member name="C:P_ColorEdition" value="6">
+			</member>
+			<member name="C:P_Color" value="7">
+				<size value="4"/>
+			</member>
+			<member name="C:P_ExpCommand" value="11">
+				<size value="128"/>
+			</member>
+			<member name="C:P_Aux2" value="139">
+			</member>
+		</member>
+		<member name="T:enum_tData" value="1559">
+			<tagname value="enum_tData"/>
+			<member name="C:T_Created" value="0">
+				<tagname value="bool"/>
+			</member>
+			<member name="C:T_Handler" value="1">
+				<tagname value="Text"/>
+			</member>
+			<member name="C:T_Text" value="2">
+				<size value="1536"/>
+			</member>
+			<member name="C:T_X" value="1538">
+				<tagname value="Float"/>
+			</member>
+			<member name="C:T_Y" value="1539">
+				<tagname value="Float"/>
+			</member>
+			<member name="C:T_Alignment" value="1540">
+			</member>
+			<member name="C:T_BackColor" value="1541">
+			</member>
+			<member name="C:T_BoxColor" value="1542">
+			</member>
+			<member name="C:T_Color" value="1543">
+			</member>
+			<member name="C:T_Font" value="1544">
+			</member>
+			<member name="C:T_XSize" value="1545">
+				<tagname value="Float"/>
+			</member>
+			<member name="C:T_YSize" value="1546">
+				<tagname value="Float"/>
+			</member>
+			<member name="C:T_Outline" value="1547">
+			</member>
+			<member name="C:T_Proportional" value="1548">
+			</member>
+			<member name="C:T_Shadow" value="1549">
+			</member>
+			<member name="C:T_TextSizeX" value="1550">
+				<tagname value="Float"/>
+			</member>
+			<member name="C:T_TextSizeY" value="1551">
+				<tagname value="Float"/>
+			</member>
+			<member name="C:T_UseBox" value="1552">
+			</member>
+			<member name="C:T_Selectable" value="1553">
+			</member>
+			<member name="C:T_PreviewModel" value="1554">
+			</member>
+			<member name="C:PMRotX" value="1555">
+				<tagname value="Float"/>
+			</member>
+			<member name="C:PMRotY" value="1556">
+				<tagname value="Float"/>
+			</member>
+			<member name="C:PMRotZ" value="1557">
+				<tagname value="Float"/>
+			</member>
+			<member name="C:PMZoom" value="1558">
+				<tagname value="Float"/>
+			</member>
+		</member>
+
+		<!-- constants -->
+		<member name="C:EOS" value="0">
+			<referrer name="strcopy"/>
+		</member>
+		<member name="C:cellmax" value="2147483647">
+			<referrer name="operator!(Float:)"/>
+		</member>
+		<member name="C:cellmin" value="-2147483648">
+			<referrer name="operator-(Float:)"/>
+		</member>
+		<member name="C:false" value="0">
+			<tagname value="bool"/>
+			<referrer name="dini_Create"/>
+			<referrer name="dini_Set"/>
+			<referrer name="dini_Unset"/>
+			<referrer name="dini_Isset"/>
+			<referrer name="DINI_fcopytextfile"/>
+			<referrer name="OnDialogResponse"/>
+			<referrer name="ShowTextDrawDialog"/>
+			<referrer name="ResetPlayerVars"/>
+			<referrer name="ClearTextdraw"/>
+			<referrer name="UpdateTextdraw"/>
+			<referrer name="DeleteLineFromFile"/>
+			<referrer name="fcopytextfile"/>
+			<referrer name="IsNumeric2"/>
+			<referrer name="IsPlayerMinID"/>
+			<referrer name="ShowInfoDraw"/>
+		</member>
+		<member name="C:true" value="1">
+			<tagname value="bool"/>
+			<referrer name="dini_Create"/>
+			<referrer name="dini_Set"/>
+			<referrer name="dini_Unset"/>
+			<referrer name="dini_Get"/>
+			<referrer name="dini_Isset"/>
+			<referrer name="DINI_fcopytextfile"/>
+			<referrer name="OnPlayerCommandText"/>
+			<referrer name="ShowTextDrawDialog"/>
+			<referrer name="CreateDefaultTextdraw"/>
+			<referrer name="UpdateTextdraw"/>
+			<referrer name="DeleteLineFromFile"/>
+			<referrer name="fcopytextfile"/>
+			<referrer name="IsNumeric2"/>
+			<referrer name="IsPlayerMinID"/>
+		</member>
+
+		<!-- variables -->
+		<member name="F:CurrentProject">
+			<referrer name="OnPlayerCommandText"/>
+			<referrer name="OnDialogResponse"/>
+			<referrer name="CreateDialogTitle"/>
+			<referrer name="ResetPlayerVars"/>
+			<referrer name="DeleteTDFromFile"/>
+			<referrer name="SaveTDData"/>
+			<referrer name="LoadProject"/>
+			<referrer name="ExportProject"/>
+		</member>
+		<member name="F:DelayShowInfoDrawTimer">
+			<referrer name="ShowInfoDraw"/>
+		</member>
+		<member name="F:InfoDraw">
+			<tagname value="Text"/>
+			<referrer name="CreateInfoDraws"/>
+			<referrer name="DestroyInfoDraws"/>
+			<referrer name="ShowInfoDraw"/>
+		</member>
+		<member name="F:pData">
+			<referrer name="OnPlayerCommandText"/>
+			<referrer name="OnDialogResponse"/>
+			<referrer name="ShowTextDrawDialog"/>
+			<referrer name="ResetPlayerVars"/>
+			<referrer name="KeyEdit"/>
+			<referrer name="OnPlayerKeyStateChange"/>
+			<referrer name="ExportProject"/>
+		</member>
+		<member name="F:tData">
+			<referrer name="OnFilterScriptInit"/>
+			<referrer name="OnFilterScriptExit"/>
+			<referrer name="OnPlayerConnect"/>
+			<referrer name="OnDialogResponse"/>
+			<referrer name="ShowTextDrawDialog"/>
+			<referrer name="KeyEdit"/>
+			<referrer name="ClearTextdraw"/>
+			<referrer name="CreateDefaultTextdraw"/>
+			<referrer name="DuplicateTextdraw"/>
+			<referrer name="UpdateTextdraw"/>
+			<referrer name="SaveTDData"/>
+			<referrer name="LoadProject"/>
+			<referrer name="ExportProject"/>
+		</member>
+
+		<!-- functions -->
+		<member name="M:operator!(Float:)" syntax="operator!(Float:)(oper)">
+			<tagname value="bool"/>
+			<stacksize value="1"/>
+			<dependency name="cellmax"/>
+			<param name="oper">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator%(_:,Float:)" syntax="operator%(_:,Float:)(oper1, oper2)">
+			<stacksize value="1"/>
+			<param name="oper1">
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator%(Float:,_:)" syntax="operator%(Float:,_:)(oper1, oper2)">
+			<stacksize value="1"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator%(Float:,Float:)" syntax="operator%(Float:,Float:)(oper1, oper2)">
+			<stacksize value="1"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator!=(Float:,_:)" syntax="operator!=(Float:,_:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator!=(Float:,Float:)" syntax="operator!=(Float:,Float:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator-(_:,Float:)" syntax="operator-(_:,Float:)(oper1, oper2)">
+			<tagname value="Float"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatsub"/>
+			<param name="oper1">
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator-(Float:,_:)" syntax="operator-(Float:,_:)(oper1, oper2)">
+			<tagname value="Float"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatsub"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator+(Float:,_:)" syntax="operator+(Float:,_:)(oper1, oper2)">
+			<tagname value="Float"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatadd"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator/(_:,Float:)" syntax="operator/(_:,Float:)(oper1, oper2)">
+			<tagname value="Float"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatdiv"/>
+			<param name="oper1">
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator/(Float:,_:)" syntax="operator/(Float:,_:)(oper1, oper2)">
+			<tagname value="Float"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatdiv"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator*(Float:,_:)" syntax="operator*(Float:,_:)(oper1, oper2)">
+			<tagname value="Float"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatmul"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator++(Float:)" syntax="operator++(Float:)(oper)">
+			<tagname value="Float"/>
+			<stacksize value="1"/>
+			<dependency name="operator+(Float:,Float:)"/>
+			<param name="oper">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator-(Float:)" syntax="operator-(Float:)(oper)">
+			<tagname value="Float"/>
+			<stacksize value="1"/>
+			<dependency name="cellmin"/>
+			<param name="oper">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator--(Float:)" syntax="operator--(Float:)(oper)">
+			<tagname value="Float"/>
+			<stacksize value="1"/>
+			<dependency name="operator-(Float:,Float:)"/>
+			<param name="oper">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator-(Float:,Float:)" syntax="operator-(Float:,Float:)(oper1, oper2)">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="operator--(Float:)"/>
+			<referrer name="KeyEdit"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator+(Float:,Float:)" syntax="operator+(Float:,Float:)(oper1, oper2)">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="operator++(Float:)"/>
+			<referrer name="KeyEdit"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:Float:operator=(_:)" syntax="Float:operator=(_:)(oper)">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="ClearTextdraw"/>
+			<param name="oper">
+			</param>
+		</member>
+		<member name="M:operator==(Float:,Float:)" syntax="operator==(Float:,Float:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator==(Float:,_:)" syntax="operator==(Float:,_:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator&gt;(Float:,Float:)" syntax="operator&gt;(Float:,Float:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator&gt;(Float:,_:)" syntax="operator&gt;(Float:,_:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator&gt;(_:,Float:)" syntax="operator&gt;(_:,Float:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator&gt;=(Float:,Float:)" syntax="operator&gt;=(Float:,Float:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator&gt;=(Float:,_:)" syntax="operator&gt;=(Float:,_:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator&gt;=(_:,Float:)" syntax="operator&gt;=(_:,Float:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator&lt;(Float:,Float:)" syntax="operator&lt;(Float:,Float:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator&lt;(Float:,_:)" syntax="operator&lt;(Float:,_:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator&lt;(_:,Float:)" syntax="operator&lt;(_:,Float:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator&lt;=(Float:,Float:)" syntax="operator&lt;=(Float:,Float:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:operator&lt;=(Float:,_:)" syntax="operator&lt;=(Float:,_:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="oper2">
+			</param>
+		</member>
+		<member name="M:operator&lt;=(_:,Float:)" syntax="operator&lt;=(_:,Float:)(oper1, oper2)">
+			<tagname value="bool"/>
+			<stacksize value="4"/>
+			<dependency name="float"/>
+			<dependency name="floatcmp"/>
+			<param name="oper1">
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:@receivepacket" syntax="@receivepacket(packet[], size, source[])">
+			<attribute name="public"/>
+			<stacksize value="1"/>
+			<param name="packet">
+				<paraminfo> [] </paraminfo>
+				Contains the packet that was received.
+			</param>
+			<param name="size">
+				Contains the number of <b>bytes</b> (not cells) that are in the packet
+			</param>
+			<param name="source">
+				<paraminfo> [] </paraminfo>
+				Contains the IP address and the port number of the sender of this packet.
+			</param>
+			<summary>A packed was received.</summary>    <seealso name="@receivestring"/> <seealso name="sendpacket"/> <remarks>You must call this function before receiving the first packet. In other words, you should set up a port in main.</remarks> <remarks>If no port number has been explicitily chosen, the module will listen at port <c><b>9930</b></c>.</remarks> <remarks>This function does not work in the current SA:MP version!</remarks> <returns>The return value of this function is currently ignored.</returns>
+		</member>
+		<member name="M:@receivestring" syntax="@receivestring(message[], source[])">
+			<attribute name="public"/>
+			<stacksize value="1"/>
+			<param name="message">
+				<paraminfo> [] </paraminfo>
+				Contains the message (a zero-terminated string) that was received.
+			</param>
+			<param name="source">
+				<paraminfo> [] </paraminfo>
+				Contains the IP address and the port number of the sender of this packet.
+			</param>
+			<summary>A packed was received.</summary>   <seealso name="@receivepacket"/> <seealso name="sendstring"/> <remarks>The string is in unpacked format if the original packet contained a string in UTF-8 format. Note that messages in the ASCII character set are also UTF-8 compliant.</remarks> <remarks>This function does not work in the current SA:MP version!</remarks> <returns>The return value of this function is currently ignored.</returns>
+		</member>
+		<member name="M:ClearTextdraw" syntax="ClearTextdraw(tdid)">
+			<stacksize value="7"/>
+			<referrer name="OnDialogResponse"/>
+			<dependency name="Float:operator=(_:)"/>
+			<dependency name="PMRotX"/>
+			<dependency name="PMRotY"/>
+			<dependency name="PMRotZ"/>
+			<dependency name="PMZoom"/>
+			<dependency name="T_Alignment"/>
+			<dependency name="T_BackColor"/>
+			<dependency name="T_BoxColor"/>
+			<dependency name="T_Color"/>
+			<dependency name="T_Created"/>
+			<dependency name="T_Font"/>
+			<dependency name="T_Handler"/>
+			<dependency name="T_Outline"/>
+			<dependency name="T_PreviewModel"/>
+			<dependency name="T_Proportional"/>
+			<dependency name="T_Selectable"/>
+			<dependency name="T_Shadow"/>
+			<dependency name="T_Text"/>
+			<dependency name="T_TextSizeX"/>
+			<dependency name="T_TextSizeY"/>
+			<dependency name="T_UseBox"/>
+			<dependency name="T_X"/>
+			<dependency name="T_XSize"/>
+			<dependency name="T_Y"/>
+			<dependency name="T_YSize"/>
+			<dependency name="TextDrawHideForAll"/>
+			<dependency name="false"/>
+			<dependency name="strmid"/>
+			<dependency name="tData"/>
+			<dependency name="tData"/>
+			<param name="tdid">
+			</param>
+		</member>
+		<member name="M:CreateDefaultTextdraw" syntax="CreateDefaultTextdraw(tdid, save)">
+			<stacksize value="7"/>
+			<referrer name="OnDialogResponse"/>
+			<referrer name="LoadProject"/>
+			<dependency name="PMRotX"/>
+			<dependency name="PMRotY"/>
+			<dependency name="PMRotZ"/>
+			<dependency name="PMZoom"/>
+			<dependency name="RGB"/>
+			<dependency name="SaveTDData"/>
+			<dependency name="T_Alignment"/>
+			<dependency name="T_BackColor"/>
+			<dependency name="T_BoxColor"/>
+			<dependency name="T_Color"/>
+			<dependency name="T_Created"/>
+			<dependency name="T_Font"/>
+			<dependency name="T_Outline"/>
+			<dependency name="T_PreviewModel"/>
+			<dependency name="T_Proportional"/>
+			<dependency name="T_Selectable"/>
+			<dependency name="T_Shadow"/>
+			<dependency name="T_Text"/>
+			<dependency name="T_TextSizeX"/>
+			<dependency name="T_TextSizeY"/>
+			<dependency name="T_UseBox"/>
+			<dependency name="T_X"/>
+			<dependency name="T_XSize"/>
+			<dependency name="T_Y"/>
+			<dependency name="T_YSize"/>
+			<dependency name="UpdateTextdraw"/>
+			<dependency name="format"/>
+			<dependency name="tData"/>
+			<dependency name="tData"/>
+			<dependency name="true"/>
+			<param name="tdid">
+			</param>
+			<param name="save">
+			</param>
+		</member>
+		<member name="M:CreateDialogTitle" syntax="CreateDialogTitle(playerid, text[])">
+			<stacksize value="135"/>
+			<referrer name="ShowTextDrawDialog"/>
+			<dependency name="CreateDialogTitle"/>
+			<dependency name="CurrentProject"/>
+			<dependency name="format"/>
+			<dependency name="strcmp"/>
+			<dependency name="strlen"/>
+			<param name="playerid">
+			</param>
+			<param name="text">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:CreateInfoDraws" syntax="CreateInfoDraws()">
+			<stacksize value="5"/>
+			<referrer name="ShowInfoDraw"/>
+			<dependency name="InfoDraw"/>
+			<dependency name="TextDrawAlignment"/>
+			<dependency name="TextDrawBackgroundColor"/>
+			<dependency name="TextDrawColor"/>
+			<dependency name="TextDrawCreate"/>
+			<dependency name="TextDrawFont"/>
+			<dependency name="TextDrawLetterSize"/>
+			<dependency name="TextDrawSetOutline"/>
+			<dependency name="TextDrawSetProportional"/>
+			<dependency name="TextDrawSetShadow"/>
+		</member>
+		<member name="M:CreateNewProject" syntax="CreateNewProject(name[])">
+			<stacksize value="135"/>
+			<referrer name="OnDialogResponse"/>
+			<dependency name="fclose"/>
+			<dependency name="fopen"/>
+			<dependency name="format"/>
+			<dependency name="fwrite"/>
+			<dependency name="io_append"/>
+			<dependency name="io_write"/>
+			<param name="name">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:DINI_StripNewLine" syntax="DINI_StripNewLine(string[])">
+			<stacksize value="4"/>
+			<referrer name="dini_Set"/>
+			<referrer name="dini_Unset"/>
+			<referrer name="dini_Get"/>
+			<referrer name="DINI_fcopytextfile"/>
+			<dependency name="strlen"/>
+			<param name="string">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:DINI_fcopytextfile" syntax="DINI_fcopytextfile(oldname[], newname[])">
+			<stacksize value="263"/>
+			<referrer name="dini_Set"/>
+			<referrer name="dini_Unset"/>
+			<dependency name="DINI_StripNewLine"/>
+			<dependency name="false"/>
+			<dependency name="fclose"/>
+			<dependency name="fexist"/>
+			<dependency name="fopen"/>
+			<dependency name="format"/>
+			<dependency name="fread"/>
+			<dependency name="fwrite"/>
+			<dependency name="io_read"/>
+			<dependency name="io_write"/>
+			<dependency name="true"/>
+			<param name="oldname">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="newname">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:DeleteLineFromFile" syntax="DeleteLineFromFile(file[], line)">
+			<stacksize value="349"/>
+			<referrer name="OnDialogResponse"/>
+			<dependency name="false"/>
+			<dependency name="fclose"/>
+			<dependency name="fcopytextfile"/>
+			<dependency name="fopen"/>
+			<dependency name="format"/>
+			<dependency name="fread"/>
+			<dependency name="fremove"/>
+			<dependency name="fwrite"/>
+			<dependency name="io_read"/>
+			<dependency name="io_write"/>
+			<dependency name="true"/>
+			<param name="file">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="line">
+			</param>
+		</member>
+		<member name="M:DeletePVar" syntax="DeletePVar(playerid, varname[])">
+			<attribute name="native"/>
+			<referrer name="OnDialogResponse"/>
+			<param name="playerid">
+			</param>
+			<param name="varname">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:DeleteTDFromFile" syntax="DeleteTDFromFile(tdid)">
+			<stacksize value="269"/>
+			<referrer name="OnDialogResponse"/>
+			<dependency name="CurrentProject"/>
+			<dependency name="dini_Unset"/>
+			<dependency name="format"/>
+			<param name="tdid">
+			</param>
+		</member>
+		<member name="M:DestroyInfoDraws" syntax="DestroyInfoDraws()">
+			<stacksize value="3"/>
+			<referrer name="HideInfoDraw"/>
+			<dependency name="InfoDraw"/>
+			<dependency name="TextDrawDestroy"/>
+		</member>
+		<member name="M:DuplicateTextdraw" syntax="DuplicateTextdraw(source, to)">
+			<stacksize value="6"/>
+			<referrer name="OnDialogResponse"/>
+			<dependency name="PMRotX"/>
+			<dependency name="PMRotY"/>
+			<dependency name="PMRotZ"/>
+			<dependency name="PMZoom"/>
+			<dependency name="SaveTDData"/>
+			<dependency name="T_Alignment"/>
+			<dependency name="T_BackColor"/>
+			<dependency name="T_BoxColor"/>
+			<dependency name="T_Color"/>
+			<dependency name="T_Created"/>
+			<dependency name="T_Font"/>
+			<dependency name="T_Outline"/>
+			<dependency name="T_PreviewModel"/>
+			<dependency name="T_Proportional"/>
+			<dependency name="T_Selectable"/>
+			<dependency name="T_Shadow"/>
+			<dependency name="T_Text"/>
+			<dependency name="T_TextSizeX"/>
+			<dependency name="T_TextSizeY"/>
+			<dependency name="T_UseBox"/>
+			<dependency name="T_X"/>
+			<dependency name="T_XSize"/>
+			<dependency name="T_Y"/>
+			<dependency name="T_YSize"/>
+			<dependency name="UpdateTextdraw"/>
+			<dependency name="format"/>
+			<dependency name="tData"/>
+			<dependency name="tData"/>
+			<param name="source">
+			</param>
+			<param name="to">
+			</param>
+		</member>
+		<member name="M:ExportProject" syntax="ExportProject(playerid, type)">
+			<stacksize value="1305"/>
+			<referrer name="OnDialogResponse"/>
+			<dependency name="CurrentProject"/>
+			<dependency name="PMRotX"/>
+			<dependency name="PMRotY"/>
+			<dependency name="PMRotZ"/>
+			<dependency name="PMZoom"/>
+			<dependency name="P_Aux"/>
+			<dependency name="P_Aux2"/>
+			<dependency name="P_ExpCommand"/>
+			<dependency name="SendClientMessage"/>
+			<dependency name="ShowTextDrawDialog"/>
+			<dependency name="T_Alignment"/>
+			<dependency name="T_BackColor"/>
+			<dependency name="T_BoxColor"/>
+			<dependency name="T_Color"/>
+			<dependency name="T_Created"/>
+			<dependency name="T_Font"/>
+			<dependency name="T_Outline"/>
+			<dependency name="T_PreviewModel"/>
+			<dependency name="T_Proportional"/>
+			<dependency name="T_Selectable"/>
+			<dependency name="T_Shadow"/>
+			<dependency name="T_Text"/>
+			<dependency name="T_TextSizeX"/>
+			<dependency name="T_TextSizeY"/>
+			<dependency name="T_UseBox"/>
+			<dependency name="T_X"/>
+			<dependency name="T_XSize"/>
+			<dependency name="T_Y"/>
+			<dependency name="T_YSize"/>
+			<dependency name="fclose"/>
+			<dependency name="fopen"/>
+			<dependency name="format"/>
+			<dependency name="fwrite"/>
+			<dependency name="getdate"/>
+			<dependency name="gettime"/>
+			<dependency name="io_write"/>
+			<dependency name="pData"/>
+			<dependency name="pData"/>
+			<dependency name="printf"/>
+			<dependency name="tData"/>
+			<dependency name="tData"/>
+			<param name="playerid">
+			</param>
+			<param name="type">
+			</param>
+		</member>
+		<member name="M:GetFileNameFromLst" syntax="GetFileNameFromLst(file[], line)">
+			<stacksize value="159"/>
+			<referrer name="OnDialogResponse"/>
+			<referrer name="ShowTextDrawDialog"/>
+			<dependency name="GetFileNameFromLst"/>
+			<dependency name="fclose"/>
+			<dependency name="fopen"/>
+			<dependency name="fread"/>
+			<dependency name="io_read"/>
+			<dependency name="strlen"/>
+			<dependency name="strmid"/>
+			<param name="file">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="line">
+			</param>
+		</member>
+		<member name="M:GetPVarInt" syntax="GetPVarInt(playerid, varname[])">
+			<attribute name="native"/>
+			<referrer name="OnDialogResponse"/>
+			<referrer name="ShowTextDrawDialog"/>
+			<param name="playerid">
+			</param>
+			<param name="varname">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:GetPlayerKeys" syntax="GetPlayerKeys(playerid, &amp;keys, &amp;updown, &amp;leftright)">
+			<attribute name="native"/>
+			<referrer name="KeyEdit"/>
+			<param name="playerid">
+			</param>
+			<param name="keys">
+				<paraminfo> &amp; </paraminfo>
+			</param>
+			<param name="updown">
+				<paraminfo> &amp; </paraminfo>
+			</param>
+			<param name="leftright">
+				<paraminfo> &amp; </paraminfo>
+			</param>
+		</member>
+		<member name="M:HexToInt" syntax="HexToInt(string[])">
+			<stacksize value="6"/>
+			<referrer name="OnDialogResponse"/>
+			<dependency name="strlen"/>
+			<param name="string">
+				<paraminfo> [] </paraminfo>
+			</param>
+			BY DRACOBLUE  Return the value of an hex-string  @param string 
+		</member>
+		<member name="M:HideInfoDraw" syntax="HideInfoDraw()">
+			<attribute name="public"/>
+			<stacksize value="3"/>
+			<dependency name="DestroyInfoDraws"/>
+		</member>
+		<member name="M:IsNumeric2" syntax="IsNumeric2(string[])">
+			<stacksize value="4"/>
+			<referrer name="OnDialogResponse"/>
+			<dependency name="false"/>
+			<dependency name="strlen"/>
+			<dependency name="true"/>
+			<param name="string">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:IsPlayerConnected" syntax="IsPlayerConnected(playerid)">
+			<attribute name="native"/>
+			<referrer name="OnFilterScriptInit"/>
+			<referrer name="IsPlayerMinID"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:IsPlayerInAnyVehicle" syntax="IsPlayerInAnyVehicle(playerid)">
+			<attribute name="native"/>
+			<referrer name="OnDialogResponse"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:IsPlayerMinID" syntax="IsPlayerMinID(playerid)">
+			<stacksize value="4"/>
+			<referrer name="OnPlayerCommandText"/>
+			<referrer name="OnDialogResponse"/>
+			<dependency name="IsPlayerConnected"/>
+			<dependency name="IsPlayerNPC"/>
+			<dependency name="false"/>
+			<dependency name="true"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:IsPlayerNPC" syntax="IsPlayerNPC(playerid)">
+			<attribute name="native"/>
+			<referrer name="IsPlayerMinID"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:KeyEdit" syntax="KeyEdit(playerid)">
+			<attribute name="public"/>
+			<stacksize value="266"/>
+			<dependency name="operator-(Float:,Float:)"/>
+			<dependency name="operator+(Float:,Float:)"/>
+			<dependency name="GetPlayerKeys"/>
+			<dependency name="P_CurrentTextdraw"/>
+			<dependency name="P_KeyEdition"/>
+			<dependency name="SaveTDData"/>
+			<dependency name="SetTimerEx"/>
+			<dependency name="ShowInfoDraw"/>
+			<dependency name="T_TextSizeX"/>
+			<dependency name="T_TextSizeY"/>
+			<dependency name="T_X"/>
+			<dependency name="T_XSize"/>
+			<dependency name="T_Y"/>
+			<dependency name="T_YSize"/>
+			<dependency name="UpdateTextdraw"/>
+			<dependency name="format"/>
+			<dependency name="pData"/>
+			<dependency name="tData"/>
+			<dependency name="tData"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:KillTimer" syntax="KillTimer(timerid)">
+			<attribute name="native"/>
+			<referrer name="ShowInfoDraw"/>
+			<param name="timerid">
+			</param>
+		</member>
+		<member name="M:LoadProject" syntax="LoadProject(playerid, filename[])">
+			<stacksize value="393"/>
+			<referrer name="OnDialogResponse"/>
+			<dependency name="CreateDefaultTextdraw"/>
+			<dependency name="CurrentProject"/>
+			<dependency name="PMRotX"/>
+			<dependency name="PMRotY"/>
+			<dependency name="PMRotZ"/>
+			<dependency name="PMZoom"/>
+			<dependency name="SendClientMessage"/>
+			<dependency name="ShowTextDrawDialog"/>
+			<dependency name="T_Alignment"/>
+			<dependency name="T_BackColor"/>
+			<dependency name="T_BoxColor"/>
+			<dependency name="T_Color"/>
+			<dependency name="T_Font"/>
+			<dependency name="T_Outline"/>
+			<dependency name="T_PreviewModel"/>
+			<dependency name="T_Proportional"/>
+			<dependency name="T_Selectable"/>
+			<dependency name="T_Shadow"/>
+			<dependency name="T_Text"/>
+			<dependency name="T_TextSizeX"/>
+			<dependency name="T_TextSizeY"/>
+			<dependency name="T_UseBox"/>
+			<dependency name="T_X"/>
+			<dependency name="T_XSize"/>
+			<dependency name="T_Y"/>
+			<dependency name="T_YSize"/>
+			<dependency name="UpdateTextdraw"/>
+			<dependency name="dini_Float"/>
+			<dependency name="dini_Get"/>
+			<dependency name="dini_Get"/>
+			<dependency name="dini_Int"/>
+			<dependency name="dini_Isset"/>
+			<dependency name="format"/>
+			<dependency name="strlen"/>
+			<dependency name="strmid"/>
+			<dependency name="tData"/>
+			<dependency name="tData"/>
+			<param name="playerid">
+			</param>
+			<param name="filename">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnActorStreamIn" syntax="OnActorStreamIn(actorid, forplayerid)">
+			<stacksize value="1"/>
+			<param name="actorid">
+			</param>
+			<param name="forplayerid">
+			</param>
+		</member>
+		<member name="M:OnActorStreamOut" syntax="OnActorStreamOut(actorid, forplayerid)">
+			<stacksize value="1"/>
+			<param name="actorid">
+			</param>
+			<param name="forplayerid">
+			</param>
+		</member>
+		<member name="M:OnDialogResponse" syntax="OnDialogResponse(playerid, dialogid, response, listitem, inputtext[])">
+			<attribute name="public"/>
+			<stacksize value="519"/>
+			<dependency name="ClearTextdraw"/>
+			<dependency name="CreateDefaultTextdraw"/>
+			<dependency name="CreateNewProject"/>
+			<dependency name="CurrentProject"/>
+			<dependency name="DeleteLineFromFile"/>
+			<dependency name="DeletePVar"/>
+			<dependency name="DeleteTDFromFile"/>
+			<dependency name="DuplicateTextdraw"/>
+			<dependency name="ExportProject"/>
+			<dependency name="GetFileNameFromLst"/>
+			<dependency name="GetPVarInt"/>
+			<dependency name="HexToInt"/>
+			<dependency name="IsNumeric2"/>
+			<dependency name="IsPlayerInAnyVehicle"/>
+			<dependency name="IsPlayerMinID"/>
+			<dependency name="LoadProject"/>
+			<dependency name="PMRotX"/>
+			<dependency name="PMRotY"/>
+			<dependency name="PMRotZ"/>
+			<dependency name="PMZoom"/>
+			<dependency name="P_Aux"/>
+			<dependency name="P_Aux2"/>
+			<dependency name="P_Color"/>
+			<dependency name="P_ColorEdition"/>
+			<dependency name="P_CurrentMenu"/>
+			<dependency name="P_CurrentTextdraw"/>
+			<dependency name="P_DialogPage"/>
+			<dependency name="P_Editing"/>
+			<dependency name="P_ExpCommand"/>
+			<dependency name="P_KeyEdition"/>
+			<dependency name="PlayerPlaySound"/>
+			<dependency name="RGB"/>
+			<dependency name="SaveTDData"/>
+			<dependency name="SendClientMessage"/>
+			<dependency name="SetPVarInt"/>
+			<dependency name="SetTimerEx"/>
+			<dependency name="ShowInfoDraw"/>
+			<dependency name="ShowTextDrawDialog"/>
+			<dependency name="T_Alignment"/>
+			<dependency name="T_BackColor"/>
+			<dependency name="T_BoxColor"/>
+			<dependency name="T_Color"/>
+			<dependency name="T_Created"/>
+			<dependency name="T_Font"/>
+			<dependency name="T_Outline"/>
+			<dependency name="T_PreviewModel"/>
+			<dependency name="T_Proportional"/>
+			<dependency name="T_Selectable"/>
+			<dependency name="T_Shadow"/>
+			<dependency name="T_Text"/>
+			<dependency name="T_UseBox"/>
+			<dependency name="T_X"/>
+			<dependency name="T_XSize"/>
+			<dependency name="T_Y"/>
+			<dependency name="T_YSize"/>
+			<dependency name="TogglePlayerControllable"/>
+			<dependency name="UpdateTextdraw"/>
+			<dependency name="false"/>
+			<dependency name="fexist"/>
+			<dependency name="floatstr"/>
+			<dependency name="format"/>
+			<dependency name="fremove"/>
+			<dependency name="pData"/>
+			<dependency name="pData"/>
+			<dependency name="strcmp"/>
+			<dependency name="strfind"/>
+			<dependency name="strlen"/>
+			<dependency name="strmid"/>
+			<dependency name="strval"/>
+			<dependency name="tData"/>
+			<dependency name="tData"/>
+			<param name="playerid">
+			</param>
+			<param name="dialogid">
+			</param>
+			<param name="response">
+			</param>
+			<param name="listitem">
+			</param>
+			<param name="inputtext">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnEnterExitModShop" syntax="OnEnterExitModShop(playerid, enterexit, interiorid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="enterexit">
+			</param>
+			<param name="interiorid">
+			</param>
+		</member>
+		<member name="M:OnFilterScriptExit" syntax="OnFilterScriptExit()">
+			<attribute name="public"/>
+			<stacksize value="4"/>
+			<dependency name="T_Handler"/>
+			<dependency name="TextDrawDestroy"/>
+			<dependency name="TextDrawHideForAll"/>
+			<dependency name="tData"/>
+		</member>
+		<member name="M:OnFilterScriptInit" syntax="OnFilterScriptInit()">
+			<attribute name="public"/>
+			<stacksize value="6"/>
+			<dependency name="IsPlayerConnected"/>
+			<dependency name="PMRotX"/>
+			<dependency name="PMRotY"/>
+			<dependency name="PMRotZ"/>
+			<dependency name="PMZoom"/>
+			<dependency name="ResetPlayerVars"/>
+			<dependency name="T_Handler"/>
+			<dependency name="T_PreviewModel"/>
+			<dependency name="TextDrawCreate"/>
+			<dependency name="print"/>
+			<dependency name="tData"/>
+			<dependency name="tData"/>
+		</member>
+		<member name="M:OnGameModeExit" syntax="OnGameModeExit()">
+			<stacksize value="1"/>
+		</member>
+		<member name="M:OnGameModeInit" syntax="OnGameModeInit()">
+			<stacksize value="1"/>
+		</member>
+		<member name="M:OnIncomingConnection" syntax="OnIncomingConnection(playerid, ip_address[], port)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="ip_address">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="port">
+			</param>
+		</member>
+		<member name="M:OnObjectMoved" syntax="OnObjectMoved(objectid)">
+			<stacksize value="1"/>
+			<param name="objectid">
+			</param>
+		</member>
+		<member name="M:OnPlayerClickMap" syntax="OnPlayerClickMap(playerid, fX, fY, fZ)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="fX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnPlayerClickPlayer" syntax="OnPlayerClickPlayer(playerid, clickedplayerid, source)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="clickedplayerid">
+			</param>
+			<param name="source">
+			</param>
+		</member>
+		<member name="M:OnPlayerClickPlayerTextDraw" syntax="OnPlayerClickPlayerTextDraw(playerid, playertextid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="playertextid">
+				<paraminfo>PlayerText </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnPlayerClickTextDraw" syntax="OnPlayerClickTextDraw(playerid, clickedid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="clickedid">
+				<paraminfo>Text </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnPlayerCommandText" syntax="OnPlayerCommandText(playerid, cmdtext[])">
+			<attribute name="public"/>
+			<stacksize value="6"/>
+			<dependency name="CurrentProject"/>
+			<dependency name="IsPlayerMinID"/>
+			<dependency name="P_Editing"/>
+			<dependency name="SendClientMessage"/>
+			<dependency name="ShowTextDrawDialog"/>
+			<dependency name="pData"/>
+			<dependency name="pData"/>
+			<dependency name="strcmp"/>
+			<dependency name="strlen"/>
+			<dependency name="true"/>
+			<param name="playerid">
+			</param>
+			<param name="cmdtext">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnPlayerConnect" syntax="OnPlayerConnect(playerid)">
+			<attribute name="public"/>
+			<stacksize value="5"/>
+			<dependency name="T_Created"/>
+			<dependency name="T_Handler"/>
+			<dependency name="TextDrawShowForPlayer"/>
+			<dependency name="tData"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerDeath" syntax="OnPlayerDeath(playerid, killerid, reason)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="killerid">
+			</param>
+			<param name="reason">
+			</param>
+		</member>
+		<member name="M:OnPlayerDisconnect" syntax="OnPlayerDisconnect(playerid, reason)">
+			<attribute name="public"/>
+			<stacksize value="4"/>
+			<dependency name="ResetPlayerVars"/>
+			<param name="playerid">
+			</param>
+			<param name="reason">
+			</param>
+		</member>
+		<member name="M:OnPlayerEditAttachedObject" syntax="OnPlayerEditAttachedObject(playerid, response, index, modelid, boneid, fOffsetX, fOffsetY, fOffsetZ, fRotX, fRotY, fRotZ, fScaleX, fScaleY, fScaleZ)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="response">
+			</param>
+			<param name="index">
+			</param>
+			<param name="modelid">
+			</param>
+			<param name="boneid">
+			</param>
+			<param name="fOffsetX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fOffsetY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fOffsetZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fRotX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fRotY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fRotZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fScaleX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fScaleY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fScaleZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnPlayerEditObject" syntax="OnPlayerEditObject(playerid, playerobject, objectid, response, fX, fY, fZ, fRotX, fRotY, fRotZ)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="playerobject">
+			</param>
+			<param name="objectid">
+			</param>
+			<param name="response">
+			</param>
+			<param name="fX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fRotX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fRotY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fRotZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnPlayerEnterCheckpoint" syntax="OnPlayerEnterCheckpoint(playerid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerEnterRaceCheckpoint" syntax="OnPlayerEnterRaceCheckpoint(playerid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerEnterVehicle" syntax="OnPlayerEnterVehicle(playerid, vehicleid, ispassenger)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="vehicleid">
+			</param>
+			<param name="ispassenger">
+			</param>
+		</member>
+		<member name="M:OnPlayerExitVehicle" syntax="OnPlayerExitVehicle(playerid, vehicleid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="vehicleid">
+			</param>
+		</member>
+		<member name="M:OnPlayerExitedMenu" syntax="OnPlayerExitedMenu(playerid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerFinishedDownloading" syntax="OnPlayerFinishedDownloading(playerid, virtualworld)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="virtualworld">
+			</param>
+		</member>
+		<member name="M:OnPlayerGiveDamage" syntax="OnPlayerGiveDamage(playerid, damagedid, amount, weaponid, bodypart)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="damagedid">
+			</param>
+			<param name="amount">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="weaponid">
+			</param>
+			<param name="bodypart">
+			</param>
+		</member>
+		<member name="M:OnPlayerGiveDamageActor" syntax="OnPlayerGiveDamageActor(playerid, damaged_actorid, amount, weaponid, bodypart)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="damaged_actorid">
+			</param>
+			<param name="amount">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="weaponid">
+			</param>
+			<param name="bodypart">
+			</param>
+		</member>
+		<member name="M:OnPlayerInteriorChange" syntax="OnPlayerInteriorChange(playerid, newinteriorid, oldinteriorid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="newinteriorid">
+			</param>
+			<param name="oldinteriorid">
+			</param>
+		</member>
+		<member name="M:OnPlayerKeyStateChange" syntax="OnPlayerKeyStateChange(playerid, newkeys, oldkeys)">
+			<attribute name="public"/>
+			<stacksize value="137"/>
+			<dependency name="P_CurrentTextdraw"/>
+			<dependency name="P_KeyEdition"/>
+			<dependency name="SendClientMessage"/>
+			<dependency name="SetTimerEx"/>
+			<dependency name="ShowInfoDraw"/>
+			<dependency name="TogglePlayerControllable"/>
+			<dependency name="format"/>
+			<dependency name="pData"/>
+			<dependency name="pData"/>
+			<param name="playerid">
+			</param>
+			<param name="newkeys">
+			</param>
+			<param name="oldkeys">
+			</param>
+		</member>
+		<member name="M:OnPlayerLeaveCheckpoint" syntax="OnPlayerLeaveCheckpoint(playerid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerLeaveRaceCheckpoint" syntax="OnPlayerLeaveRaceCheckpoint(playerid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerObjectMoved" syntax="OnPlayerObjectMoved(playerid, objectid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="objectid">
+			</param>
+		</member>
+		<member name="M:OnPlayerPickUpPickup" syntax="OnPlayerPickUpPickup(playerid, pickupid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="pickupid">
+			</param>
+		</member>
+		<member name="M:OnPlayerRequestClass" syntax="OnPlayerRequestClass(playerid, classid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="classid">
+			</param>
+		</member>
+		<member name="M:OnPlayerRequestDownload" syntax="OnPlayerRequestDownload(playerid, type, crc)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="type">
+			</param>
+			<param name="crc">
+			</param>
+		</member>
+		<member name="M:OnPlayerRequestSpawn" syntax="OnPlayerRequestSpawn(playerid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerSelectObject" syntax="OnPlayerSelectObject(playerid, type, objectid, modelid, fX, fY, fZ)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="type">
+			</param>
+			<param name="objectid">
+			</param>
+			<param name="modelid">
+			</param>
+			<param name="fX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnPlayerSelectedMenuRow" syntax="OnPlayerSelectedMenuRow(playerid, row)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="row">
+			</param>
+		</member>
+		<member name="M:OnPlayerSpawn" syntax="OnPlayerSpawn(playerid)">
+			<attribute name="public"/>
+			<stacksize value="5"/>
+			<dependency name="SendClientMessage"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerStateChange" syntax="OnPlayerStateChange(playerid, newstate, oldstate)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="newstate">
+			</param>
+			<param name="oldstate">
+			</param>
+		</member>
+		<member name="M:OnPlayerStreamIn" syntax="OnPlayerStreamIn(playerid, forplayerid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="forplayerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerStreamOut" syntax="OnPlayerStreamOut(playerid, forplayerid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="forplayerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerTakeDamage" syntax="OnPlayerTakeDamage(playerid, issuerid, amount, weaponid, bodypart)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="issuerid">
+			</param>
+			<param name="amount">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="weaponid">
+			</param>
+			<param name="bodypart">
+			</param>
+		</member>
+		<member name="M:OnPlayerText" syntax="OnPlayerText(playerid, text[])">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="text">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnPlayerUpdate" syntax="OnPlayerUpdate(playerid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnPlayerWeaponShot" syntax="OnPlayerWeaponShot(playerid, weaponid, hittype, hitid, fX, fY, fZ)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="weaponid">
+			</param>
+			<param name="hittype">
+			</param>
+			<param name="hitid">
+			</param>
+			<param name="fX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnRconCommand" syntax="OnRconCommand(cmd[])">
+			<stacksize value="1"/>
+			<param name="cmd">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnRconLoginAttempt" syntax="OnRconLoginAttempt(ip[], password[], success)">
+			<stacksize value="1"/>
+			<param name="ip">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="password">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="success">
+			</param>
+		</member>
+		<member name="M:OnTrailerUpdate" syntax="OnTrailerUpdate(playerid, vehicleid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="vehicleid">
+			</param>
+		</member>
+		<member name="M:OnUnoccupiedVehicleUpdate" syntax="OnUnoccupiedVehicleUpdate(vehicleid, playerid, passenger_seat, new_x, new_y, new_z, vel_x, vel_y, vel_z)">
+			<stacksize value="1"/>
+			<param name="vehicleid">
+			</param>
+			<param name="playerid">
+			</param>
+			<param name="passenger_seat">
+			</param>
+			<param name="new_x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="new_y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="new_z">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="vel_x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="vel_y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="vel_z">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:OnVehicleDamageStatusUpdate" syntax="OnVehicleDamageStatusUpdate(vehicleid, playerid)">
+			<stacksize value="1"/>
+			<param name="vehicleid">
+			</param>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:OnVehicleDeath" syntax="OnVehicleDeath(vehicleid, killerid)">
+			<stacksize value="1"/>
+			<param name="vehicleid">
+			</param>
+			<param name="killerid">
+			</param>
+		</member>
+		<member name="M:OnVehicleMod" syntax="OnVehicleMod(playerid, vehicleid, componentid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="vehicleid">
+			</param>
+			<param name="componentid">
+			</param>
+		</member>
+		<member name="M:OnVehiclePaintjob" syntax="OnVehiclePaintjob(playerid, vehicleid, paintjobid)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="vehicleid">
+			</param>
+			<param name="paintjobid">
+			</param>
+		</member>
+		<member name="M:OnVehicleRespray" syntax="OnVehicleRespray(playerid, vehicleid, color1, color2)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="vehicleid">
+			</param>
+			<param name="color1">
+			</param>
+			<param name="color2">
+			</param>
+		</member>
+		<member name="M:OnVehicleSirenStateChange" syntax="OnVehicleSirenStateChange(playerid, vehicleid, newstate)">
+			<stacksize value="1"/>
+			<param name="playerid">
+			</param>
+			<param name="vehicleid">
+			</param>
+			<param name="newstate">
+			</param>
+		</member>
+		<member name="M:OnVehicleSpawn" syntax="OnVehicleSpawn(vehicleid)">
+			<stacksize value="1"/>
+			<param name="vehicleid">
+			</param>
+		</member>
+		<member name="M:OnVehicleStreamIn" syntax="OnVehicleStreamIn(vehicleid, forplayerid)">
+			<stacksize value="1"/>
+			<param name="vehicleid">
+			</param>
+			<param name="forplayerid">
+			</param>
+		</member>
+		<member name="M:OnVehicleStreamOut" syntax="OnVehicleStreamOut(vehicleid, forplayerid)">
+			<stacksize value="1"/>
+			<param name="vehicleid">
+			</param>
+			<param name="forplayerid">
+			</param>
+		</member>
+		<member name="M:PlayerPlaySound" syntax="PlayerPlaySound(playerid, soundid, x, y, z)">
+			<attribute name="native"/>
+			<referrer name="OnDialogResponse"/>
+			<param name="playerid">
+			</param>
+			<param name="soundid">
+			</param>
+			<param name="x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="z">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:RGB" syntax="RGB(red, green, blue, alpha)">
+			<stacksize value="1"/>
+			<referrer name="OnDialogResponse"/>
+			<referrer name="CreateDefaultTextdraw"/>
+			<param name="red">
+			</param>
+			<param name="green">
+			</param>
+			<param name="blue">
+			</param>
+			<param name="alpha">
+			</param>
+		</member>
+		<member name="M:ResetPlayerVars" syntax="ResetPlayerVars(playerid)">
+			<stacksize value="7"/>
+			<referrer name="OnFilterScriptInit"/>
+			<referrer name="OnPlayerDisconnect"/>
+			<dependency name="CurrentProject"/>
+			<dependency name="P_Editing"/>
+			<dependency name="false"/>
+			<dependency name="pData"/>
+			<dependency name="pData"/>
+			<dependency name="strmid"/>
+			<param name="playerid">
+			</param>
+		</member>
+		<member name="M:SaveTDData" syntax="SaveTDData(tdid, data[])">
+			<stacksize value="270"/>
+			<referrer name="OnDialogResponse"/>
+			<referrer name="KeyEdit"/>
+			<referrer name="CreateDefaultTextdraw"/>
+			<referrer name="DuplicateTextdraw"/>
+			<dependency name="CurrentProject"/>
+			<dependency name="PMRotX"/>
+			<dependency name="PMRotY"/>
+			<dependency name="PMRotZ"/>
+			<dependency name="PMZoom"/>
+			<dependency name="SendClientMessageToAll"/>
+			<dependency name="T_Alignment"/>
+			<dependency name="T_BackColor"/>
+			<dependency name="T_BoxColor"/>
+			<dependency name="T_Color"/>
+			<dependency name="T_Font"/>
+			<dependency name="T_Outline"/>
+			<dependency name="T_PreviewModel"/>
+			<dependency name="T_Proportional"/>
+			<dependency name="T_Selectable"/>
+			<dependency name="T_Shadow"/>
+			<dependency name="T_Text"/>
+			<dependency name="T_TextSizeX"/>
+			<dependency name="T_TextSizeY"/>
+			<dependency name="T_UseBox"/>
+			<dependency name="T_X"/>
+			<dependency name="T_XSize"/>
+			<dependency name="T_Y"/>
+			<dependency name="T_YSize"/>
+			<dependency name="dini_FloatSet"/>
+			<dependency name="dini_IntSet"/>
+			<dependency name="dini_Set"/>
+			<dependency name="format"/>
+			<dependency name="strcmp"/>
+			<dependency name="tData"/>
+			<param name="tdid">
+			</param>
+			<param name="data">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:SendClientMessage" syntax="SendClientMessage(playerid, color, message[])">
+			<attribute name="native"/>
+			<referrer name="OnPlayerSpawn"/>
+			<referrer name="OnPlayerCommandText"/>
+			<referrer name="OnDialogResponse"/>
+			<referrer name="ShowTextDrawDialog"/>
+			<referrer name="OnPlayerKeyStateChange"/>
+			<referrer name="LoadProject"/>
+			<referrer name="ExportProject"/>
+			<param name="playerid">
+			</param>
+			<param name="color">
+			</param>
+			<param name="message">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:SendClientMessageToAll" syntax="SendClientMessageToAll(color, message[])">
+			<attribute name="native"/>
+			<referrer name="SaveTDData"/>
+			<param name="color">
+			</param>
+			<param name="message">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:SetPVarInt" syntax="SetPVarInt(playerid, varname[], int_value)">
+			<attribute name="native"/>
+			<referrer name="OnDialogResponse"/>
+			<param name="playerid">
+			</param>
+			<param name="varname">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="int_value">
+			</param>
+		</member>
+		<member name="M:SetTimer" syntax="SetTimer(funcname[], interval, repeating)">
+			<attribute name="native"/>
+			<referrer name="ShowInfoDraw"/>
+			<param name="funcname">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="interval">
+			</param>
+			<param name="repeating">
+			</param>
+		</member>
+		<member name="M:SetTimerEx" syntax="SetTimerEx(funcname[], interval, repeating, format[], ...)">
+			<attribute name="native"/>
+			<referrer name="OnDialogResponse"/>
+			<referrer name="KeyEdit"/>
+			<referrer name="OnPlayerKeyStateChange"/>
+			<param name="funcname">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="interval">
+			</param>
+			<param name="repeating">
+			</param>
+			<param name="format">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="...">
+				<paraminfo> {Float,_} </paraminfo>
+			</param>
+		</member>
+		<member name="M:ShowInfoDraw" syntax="ShowInfoDraw(playerid, text[], time)">
+			<stacksize value="5"/>
+			<referrer name="OnDialogResponse"/>
+			<referrer name="KeyEdit"/>
+			<referrer name="OnPlayerKeyStateChange"/>
+			<dependency name="CreateInfoDraws"/>
+			<dependency name="DelayShowInfoDrawTimer"/>
+			<dependency name="InfoDraw"/>
+			<dependency name="KillTimer"/>
+			<dependency name="SetTimer"/>
+			<dependency name="TextDrawDestroy"/>
+			<dependency name="TextDrawSetString"/>
+			<dependency name="TextDrawShowForPlayer"/>
+			<dependency name="false"/>
+			<param name="playerid">
+			</param>
+			<param name="text">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="time">
+			</param>
+		</member>
+		<member name="M:ShowPlayerDialog" syntax="ShowPlayerDialog(playerid, dialogid, style, caption[], info[], button1[], button2[])">
+			<attribute name="native"/>
+			<referrer name="ShowTextDrawDialog"/>
+			<param name="playerid">
+			</param>
+			<param name="dialogid">
+			</param>
+			<param name="style">
+			</param>
+			<param name="caption">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="info">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="button1">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="button2">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:ShowTextDrawDialog" syntax="ShowTextDrawDialog(playerid, dialogid, aux, aux2)">
+			<stacksize value="1162"/>
+			<referrer name="OnPlayerCommandText"/>
+			<referrer name="OnDialogResponse"/>
+			<referrer name="ShowTextDrawDialogEx"/>
+			<referrer name="ShowTextDrawDialog"/>
+			<referrer name="LoadProject"/>
+			<referrer name="ExportProject"/>
+			<dependency name="CreateDialogTitle"/>
+			<dependency name="GetFileNameFromLst"/>
+			<dependency name="GetPVarInt"/>
+			<dependency name="P_Aux"/>
+			<dependency name="P_CurrentMenu"/>
+			<dependency name="P_CurrentTextdraw"/>
+			<dependency name="P_DialogPage"/>
+			<dependency name="SendClientMessage"/>
+			<dependency name="ShowPlayerDialog"/>
+			<dependency name="T_Created"/>
+			<dependency name="T_Outline"/>
+			<dependency name="T_Selectable"/>
+			<dependency name="T_Text"/>
+			<dependency name="false"/>
+			<dependency name="fclose"/>
+			<dependency name="fexist"/>
+			<dependency name="fopen"/>
+			<dependency name="format"/>
+			<dependency name="fread"/>
+			<dependency name="io_read"/>
+			<dependency name="pData"/>
+			<dependency name="pData"/>
+			<dependency name="strlen"/>
+			<dependency name="strmid"/>
+			<dependency name="tData"/>
+			<dependency name="tData"/>
+			<dependency name="true"/>
+			<param name="playerid">
+			</param>
+			<param name="dialogid">
+			</param>
+			<param name="aux">
+			</param>
+			<param name="aux2">
+			</param>
+		</member>
+		<member name="M:ShowTextDrawDialogEx" syntax="ShowTextDrawDialogEx(playerid, dialogid)">
+			<attribute name="public"/>
+			<stacksize value="5"/>
+			<dependency name="ShowTextDrawDialog"/>
+			<param name="playerid">
+			</param>
+			<param name="dialogid">
+			</param>
+		</member>
+		<member name="M:StripNewLine" syntax="StripNewLine(string[])">
+			<stacksize value="4"/>
+			<referrer name="fcopytextfile"/>
+			<dependency name="strlen"/>
+			<param name="string">
+				<paraminfo> [] </paraminfo>
+			</param>
+			BY DRACOBLUE  Strips Newline from the end of a string.  Idea: Y_Less, Bugfixing (when length=1) by DracoBlue  @param   string 
+		</member>
+		<member name="M:TextDrawAlignment" syntax="TextDrawAlignment(text, alignment)">
+			<attribute name="native"/>
+			<referrer name="UpdateTextdraw"/>
+			<referrer name="CreateInfoDraws"/>
+			<param name="text">
+				<paraminfo>Text </paraminfo>
+			</param>
+			<param name="alignment">
+			</param>
+		</member>
+		<member name="M:TextDrawBackgroundColor" syntax="TextDrawBackgroundColor(text, color)">
+			<attribute name="native"/>
+			<referrer name="UpdateTextdraw"/>
+			<referrer name="CreateInfoDraws"/>
+			<param name="text">
+				<paraminfo>Text </paraminfo>
+			</param>
+			<param name="color">
+			</param>
+		</member>
+		<member name="M:TextDrawBoxColor" syntax="TextDrawBoxColor(text, color)">
+			<attribute name="native"/>
+			<referrer name="UpdateTextdraw"/>
+			<param name="text">
+				<paraminfo>Text </paraminfo>
+			</param>
+			<param name="color">
+			</param>
+		</member>
+		<member name="M:TextDrawColor" syntax="TextDrawColor(text, color)">
+			<attribute name="native"/>
+			<referrer name="UpdateTextdraw"/>
+			<referrer name="CreateInfoDraws"/>
+			<param name="text">
+				<paraminfo>Text </paraminfo>
+			</param>
+			<param name="color">
+			</param>
+		</member>
+		<member name="M:TextDrawCreate" syntax="TextDrawCreate(x, y, text[])">
+			<tagname value="Text"/>
+			<attribute name="native"/>
+			<referrer name="OnFilterScriptInit"/>
+			<referrer name="UpdateTextdraw"/>
+			<referrer name="CreateInfoDraws"/>
+			<param name="x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="text">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:TextDrawDestroy" syntax="TextDrawDestroy(text)">
+			<attribute name="native"/>
+			<referrer name="OnFilterScriptExit"/>
+			<referrer name="UpdateTextdraw"/>
+			<referrer name="DestroyInfoDraws"/>
+			<referrer name="ShowInfoDraw"/>
+			<param name="text">
+				<paraminfo>Text </paraminfo>
+			</param>
+		</member>
+		<member name="M:TextDrawFont" syntax="TextDrawFont(text, font)">
+			<attribute name="native"/>
+			<referrer name="UpdateTextdraw"/>
+			<referrer name="CreateInfoDraws"/>
+			<param name="text">
+				<paraminfo>Text </paraminfo>
+			</param>
+			<param name="font">
+			</param>
+		</member>
+		<member name="M:TextDrawHideForAll" syntax="TextDrawHideForAll(text)">
+			<attribute name="native"/>
+			<referrer name="OnFilterScriptExit"/>
+			<referrer name="ClearTextdraw"/>
+			<referrer name="UpdateTextdraw"/>
+			<param name="text">
+				<paraminfo>Text </paraminfo>
+			</param>
+		</member>
+		<member name="M:TextDrawLetterSize" syntax="TextDrawLetterSize(text, x, y)">
+			<attribute name="native"/>
+			<referrer name="UpdateTextdraw"/>
+			<referrer name="CreateInfoDraws"/>
+			<param name="text">
+				<paraminfo>Text </paraminfo>
+			</param>
+			<param name="x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:TextDrawSetOutline" syntax="TextDrawSetOutline(text, size)">
+			<attribute name="native"/>
+			<referrer name="UpdateTextdraw"/>
+			<referrer name="CreateInfoDraws"/>
+			<param name="text">
+				<paraminfo>Text </paraminfo>
+			</param>
+			<param name="size">
+			</param>
+		</member>
+		<member name="M:TextDrawSetPreviewModel" syntax="TextDrawSetPreviewModel(text, modelindex)">
+			<attribute name="native"/>
+			<referrer name="UpdateTextdraw"/>
+			<param name="text">
+				<paraminfo>Text </paraminfo>
+			</param>
+			<param name="modelindex">
+			</param>
+		</member>
+		<member name="M:TextDrawSetPreviewRot" syntax="TextDrawSetPreviewRot(text, fRotX, fRotY, fRotZ, fZoom)">
+			<attribute name="native"/>
+			<referrer name="UpdateTextdraw"/>
+			<param name="text">
+				<paraminfo>Text </paraminfo>
+			</param>
+			<param name="fRotX">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fRotY">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fRotZ">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="fZoom">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:TextDrawSetProportional" syntax="TextDrawSetProportional(text, set)">
+			<attribute name="native"/>
+			<referrer name="UpdateTextdraw"/>
+			<referrer name="CreateInfoDraws"/>
+			<param name="text">
+				<paraminfo>Text </paraminfo>
+			</param>
+			<param name="set">
+			</param>
+		</member>
+		<member name="M:TextDrawSetSelectable" syntax="TextDrawSetSelectable(text, set)">
+			<attribute name="native"/>
+			<referrer name="UpdateTextdraw"/>
+			<param name="text">
+				<paraminfo>Text </paraminfo>
+			</param>
+			<param name="set">
+			</param>
+		</member>
+		<member name="M:TextDrawSetShadow" syntax="TextDrawSetShadow(text, size)">
+			<attribute name="native"/>
+			<referrer name="UpdateTextdraw"/>
+			<referrer name="CreateInfoDraws"/>
+			<param name="text">
+				<paraminfo>Text </paraminfo>
+			</param>
+			<param name="size">
+			</param>
+		</member>
+		<member name="M:TextDrawSetString" syntax="TextDrawSetString(text, string[])">
+			<attribute name="native"/>
+			<referrer name="ShowInfoDraw"/>
+			<param name="text">
+				<paraminfo>Text </paraminfo>
+			</param>
+			<param name="string">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:TextDrawShowForAll" syntax="TextDrawShowForAll(text)">
+			<attribute name="native"/>
+			<referrer name="UpdateTextdraw"/>
+			<param name="text">
+				<paraminfo>Text </paraminfo>
+			</param>
+		</member>
+		<member name="M:TextDrawShowForPlayer" syntax="TextDrawShowForPlayer(playerid, text)">
+			<attribute name="native"/>
+			<referrer name="OnPlayerConnect"/>
+			<referrer name="ShowInfoDraw"/>
+			<param name="playerid">
+			</param>
+			<param name="text">
+				<paraminfo>Text </paraminfo>
+			</param>
+		</member>
+		<member name="M:TextDrawTextSize" syntax="TextDrawTextSize(text, x, y)">
+			<attribute name="native"/>
+			<referrer name="UpdateTextdraw"/>
+			<param name="text">
+				<paraminfo>Text </paraminfo>
+			</param>
+			<param name="x">
+				<paraminfo>Float </paraminfo>
+			</param>
+			<param name="y">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:TextDrawUseBox" syntax="TextDrawUseBox(text, use)">
+			<attribute name="native"/>
+			<referrer name="UpdateTextdraw"/>
+			<param name="text">
+				<paraminfo>Text </paraminfo>
+			</param>
+			<param name="use">
+			</param>
+		</member>
+		<member name="M:TogglePlayerControllable" syntax="TogglePlayerControllable(playerid, toggle)">
+			<attribute name="native"/>
+			<referrer name="OnDialogResponse"/>
+			<referrer name="OnPlayerKeyStateChange"/>
+			<param name="playerid">
+			</param>
+			<param name="toggle">
+			</param>
+		</member>
+		<member name="M:UpdateTextdraw" syntax="UpdateTextdraw(tdid)">
+			<stacksize value="7"/>
+			<referrer name="OnDialogResponse"/>
+			<referrer name="KeyEdit"/>
+			<referrer name="CreateDefaultTextdraw"/>
+			<referrer name="DuplicateTextdraw"/>
+			<referrer name="LoadProject"/>
+			<dependency name="PMRotX"/>
+			<dependency name="PMRotY"/>
+			<dependency name="PMRotZ"/>
+			<dependency name="PMZoom"/>
+			<dependency name="T_Alignment"/>
+			<dependency name="T_BackColor"/>
+			<dependency name="T_BoxColor"/>
+			<dependency name="T_Color"/>
+			<dependency name="T_Created"/>
+			<dependency name="T_Font"/>
+			<dependency name="T_Handler"/>
+			<dependency name="T_Outline"/>
+			<dependency name="T_PreviewModel"/>
+			<dependency name="T_Proportional"/>
+			<dependency name="T_Selectable"/>
+			<dependency name="T_Shadow"/>
+			<dependency name="T_Text"/>
+			<dependency name="T_TextSizeX"/>
+			<dependency name="T_TextSizeY"/>
+			<dependency name="T_UseBox"/>
+			<dependency name="T_X"/>
+			<dependency name="T_XSize"/>
+			<dependency name="T_Y"/>
+			<dependency name="T_YSize"/>
+			<dependency name="TextDrawAlignment"/>
+			<dependency name="TextDrawBackgroundColor"/>
+			<dependency name="TextDrawBoxColor"/>
+			<dependency name="TextDrawColor"/>
+			<dependency name="TextDrawCreate"/>
+			<dependency name="TextDrawDestroy"/>
+			<dependency name="TextDrawFont"/>
+			<dependency name="TextDrawHideForAll"/>
+			<dependency name="TextDrawLetterSize"/>
+			<dependency name="TextDrawSetOutline"/>
+			<dependency name="TextDrawSetPreviewModel"/>
+			<dependency name="TextDrawSetPreviewRot"/>
+			<dependency name="TextDrawSetProportional"/>
+			<dependency name="TextDrawSetSelectable"/>
+			<dependency name="TextDrawSetShadow"/>
+			<dependency name="TextDrawShowForAll"/>
+			<dependency name="TextDrawTextSize"/>
+			<dependency name="TextDrawUseBox"/>
+			<dependency name="false"/>
+			<dependency name="tData"/>
+			<dependency name="tData"/>
+			<dependency name="true"/>
+			<param name="tdid">
+			</param>
+		</member>
+		<member name="M:dini_Bool" syntax="dini_Bool(filename[], key[])">
+			<stacksize value="5"/>
+			<dependency name="dini_Get"/>
+			<dependency name="strval"/>
+			<param name="filename">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="key">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:dini_BoolSet" syntax="dini_BoolSet(filename[], key[], value)">
+			<stacksize value="6"/>
+			<dependency name="dini_Set"/>
+			<param name="filename">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="key">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="value">
+			</param>
+		</member>
+		<member name="M:dini_Create" syntax="dini_Create(filename[])">
+			<stacksize value="5"/>
+			<dependency name="false"/>
+			<dependency name="fclose"/>
+			<dependency name="fexist"/>
+			<dependency name="fopen"/>
+			<dependency name="io_write"/>
+			<dependency name="true"/>
+			<param name="filename">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:dini_Exists" syntax="dini_Exists(filename[])">
+			<stacksize value="3"/>
+			<dependency name="fexist"/>
+			<param name="filename">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:dini_Float" syntax="dini_Float(filename[], key[])">
+			<tagname value="Float"/>
+			<stacksize value="5"/>
+			<referrer name="LoadProject"/>
+			<dependency name="dini_Get"/>
+			<dependency name="floatstr"/>
+			<param name="filename">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="key">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:dini_FloatSet" syntax="dini_FloatSet(filename[], key[], value)">
+			<stacksize value="261"/>
+			<referrer name="SaveTDData"/>
+			<dependency name="dini_Set"/>
+			<dependency name="format"/>
+			<param name="filename">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="key">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="value">
+				<paraminfo>Float </paraminfo>
+			</param>
+		</member>
+		<member name="M:dini_Get" syntax="dini_Get(filename[], key[])">
+			<stacksize value="264"/>
+			<referrer name="dini_Int"/>
+			<referrer name="dini_Float"/>
+			<referrer name="dini_Bool"/>
+			<referrer name="LoadProject"/>
+			<dependency name="DINI_StripNewLine"/>
+			<dependency name="dini_Get"/>
+			<dependency name="fclose"/>
+			<dependency name="fopen"/>
+			<dependency name="fread"/>
+			<dependency name="io_read"/>
+			<dependency name="strcmp"/>
+			<dependency name="strlen"/>
+			<dependency name="strmid"/>
+			<dependency name="true"/>
+			<param name="filename">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="key">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:dini_Int" syntax="dini_Int(filename[], key[])">
+			<stacksize value="5"/>
+			<referrer name="LoadProject"/>
+			<dependency name="dini_Get"/>
+			<dependency name="strval"/>
+			<param name="filename">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="key">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:dini_IntSet" syntax="dini_IntSet(filename[], key[], value)">
+			<stacksize value="261"/>
+			<referrer name="SaveTDData"/>
+			<dependency name="dini_Set"/>
+			<dependency name="format"/>
+			<param name="filename">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="key">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="value">
+			</param>
+		</member>
+		<member name="M:dini_Isset" syntax="dini_Isset(filename[], key[])">
+			<stacksize value="263"/>
+			<referrer name="LoadProject"/>
+			<dependency name="false"/>
+			<dependency name="fclose"/>
+			<dependency name="fopen"/>
+			<dependency name="fread"/>
+			<dependency name="io_read"/>
+			<dependency name="strcmp"/>
+			<dependency name="strlen"/>
+			<dependency name="true"/>
+			<param name="filename">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="key">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:dini_Remove" syntax="dini_Remove(filename[])">
+			<stacksize value="3"/>
+			<dependency name="fremove"/>
+			<param name="filename">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:dini_Set" syntax="dini_Set(filename[], key[], value[])">
+			<stacksize value="267"/>
+			<referrer name="dini_IntSet"/>
+			<referrer name="dini_FloatSet"/>
+			<referrer name="dini_BoolSet"/>
+			<referrer name="SaveTDData"/>
+			<dependency name="DINI_StripNewLine"/>
+			<dependency name="DINI_fcopytextfile"/>
+			<dependency name="false"/>
+			<dependency name="fclose"/>
+			<dependency name="fopen"/>
+			<dependency name="format"/>
+			<dependency name="fread"/>
+			<dependency name="fremove"/>
+			<dependency name="fwrite"/>
+			<dependency name="io_read"/>
+			<dependency name="io_write"/>
+			<dependency name="strcmp"/>
+			<dependency name="strlen"/>
+			<dependency name="true"/>
+			<param name="filename">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="key">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="value">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:dini_Unset" syntax="dini_Unset(filename[], key[])">
+			<stacksize value="264"/>
+			<referrer name="DeleteTDFromFile"/>
+			<dependency name="DINI_StripNewLine"/>
+			<dependency name="DINI_fcopytextfile"/>
+			<dependency name="false"/>
+			<dependency name="fclose"/>
+			<dependency name="fopen"/>
+			<dependency name="format"/>
+			<dependency name="fread"/>
+			<dependency name="fremove"/>
+			<dependency name="fwrite"/>
+			<dependency name="io_read"/>
+			<dependency name="io_write"/>
+			<dependency name="strcmp"/>
+			<dependency name="strlen"/>
+			<dependency name="true"/>
+			<param name="filename">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="key">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:fclose" syntax="fclose(handle)">
+			<tagname value="bool"/>
+			<attribute name="native"/>
+			<referrer name="dini_Create"/>
+			<referrer name="dini_Set"/>
+			<referrer name="dini_Unset"/>
+			<referrer name="dini_Get"/>
+			<referrer name="dini_Isset"/>
+			<referrer name="DINI_fcopytextfile"/>
+			<referrer name="ShowTextDrawDialog"/>
+			<referrer name="CreateNewProject"/>
+			<referrer name="ExportProject"/>
+			<referrer name="GetFileNameFromLst"/>
+			<referrer name="DeleteLineFromFile"/>
+			<referrer name="fcopytextfile"/>
+			<param name="handle">
+				<paraminfo>File </paraminfo>
+				The file handle to close. Returned by <a href="#fopen">fopen</a>
+			</param>
+			<summary>Closes a file. Files should always be closed when the script no longer needs them (after reading/writing).</summary>  <remarks>Using an <b>invalid handle</b> will crash your server! Get a <b>valid handle</b> by using <a href="#fopen">fopen</a> or <a href="#ftemp">ftemp</a>.</remarks> <returns> <b><c>true</c></b>: The function executed successfully.<p/> <b><c>false</c></b>: The function failed to execute. The file could not be closed. It may already be closed. </returns>
+		</member>
+		<member name="M:fcopytextfile" syntax="fcopytextfile(oldname[], newname[])">
+			<stacksize value="264"/>
+			<referrer name="DeleteLineFromFile"/>
+			<dependency name="StripNewLine"/>
+			<dependency name="false"/>
+			<dependency name="fclose"/>
+			<dependency name="fexist"/>
+			<dependency name="fopen"/>
+			<dependency name="format"/>
+			<dependency name="fread"/>
+			<dependency name="fwrite"/>
+			<dependency name="io_read"/>
+			<dependency name="io_write"/>
+			<dependency name="true"/>
+			<param name="oldname">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="newname">
+				<paraminfo> [] </paraminfo>
+			</param>
+			BY DRACOBLUE  Copies a textfile (Source file won't be deleted!)  @param   oldname  newname 
+		</member>
+		<member name="M:fexist" syntax="fexist(name[])">
+			<attribute name="native"/>
+			<referrer name="dini_Exists"/>
+			<referrer name="dini_Create"/>
+			<referrer name="DINI_fcopytextfile"/>
+			<referrer name="OnDialogResponse"/>
+			<referrer name="ShowTextDrawDialog"/>
+			<referrer name="fcopytextfile"/>
+			<param name="name">
+				<paraminfo> [] </paraminfo>
+				The name of the file
+			</param>
+			<summary>Checks if a specific file exists in the <b><c>/scriptfiles</c></b> directory.</summary>  <returns>1 if the file exists, 0 otherwise.</returns>
+		</member>
+		<member name="M:float" syntax="float(value)">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="operator*(Float:,_:)"/>
+			<referrer name="operator/(Float:,_:)"/>
+			<referrer name="operator/(_:,Float:)"/>
+			<referrer name="operator+(Float:,_:)"/>
+			<referrer name="operator-(Float:,_:)"/>
+			<referrer name="operator-(_:,Float:)"/>
+			<referrer name="operator==(Float:,_:)"/>
+			<referrer name="operator!=(Float:,_:)"/>
+			<referrer name="operator&gt;(Float:,_:)"/>
+			<referrer name="operator&gt;(_:,Float:)"/>
+			<referrer name="operator&gt;=(Float:,_:)"/>
+			<referrer name="operator&gt;=(_:,Float:)"/>
+			<referrer name="operator&lt;(Float:,_:)"/>
+			<referrer name="operator&lt;(_:,Float:)"/>
+			<referrer name="operator&lt;=(Float:,_:)"/>
+			<referrer name="operator&lt;=(_:,Float:)"/>
+			<param name="value">
+			</param>
+		</member>
+		<member name="M:floatadd" syntax="floatadd(oper1, oper2)">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="operator+(Float:,_:)"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+				First float
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+				Second float
+			</param>
+			<summary>Adds two floats together. This function is redundant as the standard operator (+) does the same thing.</summary>   <seealso name="floatsub"/> <seealso name="floatmul"/> <seealso name="floatdiv"/> <returns>The sum of the two given floats.</returns>
+		</member>
+		<member name="M:floatcmp" syntax="floatcmp(oper1, oper2)">
+			<attribute name="native"/>
+			<referrer name="operator==(Float:,Float:)"/>
+			<referrer name="operator==(Float:,_:)"/>
+			<referrer name="operator!=(Float:,Float:)"/>
+			<referrer name="operator!=(Float:,_:)"/>
+			<referrer name="operator&gt;(Float:,Float:)"/>
+			<referrer name="operator&gt;(Float:,_:)"/>
+			<referrer name="operator&gt;(_:,Float:)"/>
+			<referrer name="operator&gt;=(Float:,Float:)"/>
+			<referrer name="operator&gt;=(Float:,_:)"/>
+			<referrer name="operator&gt;=(_:,Float:)"/>
+			<referrer name="operator&lt;(Float:,Float:)"/>
+			<referrer name="operator&lt;(Float:,_:)"/>
+			<referrer name="operator&lt;(_:,Float:)"/>
+			<referrer name="operator&lt;=(Float:,Float:)"/>
+			<referrer name="operator&lt;=(Float:,_:)"/>
+			<referrer name="operator&lt;=(_:,Float:)"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+				The first float value to compare
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+				The second float value to compare
+			</param>
+			<summary>floatcmp can be used to compare float values to each other, to validate the comparison.</summary>   <returns><b><c>0</c></b> if value does match, <b><c>1</c></b> if the first value is bigger and <b><c>-1</c></b> if the 2nd value is bigger.</returns>
+		</member>
+		<member name="M:floatdiv" syntax="floatdiv(dividend, divisor)">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="operator/(Float:,_:)"/>
+			<referrer name="operator/(_:,Float:)"/>
+			<param name="dividend">
+				<paraminfo>Float </paraminfo>
+				First float
+			</param>
+			<param name="divisor">
+				<paraminfo>Float </paraminfo>
+				Second float (dividates the first float.)
+			</param>
+			<summary>Divide one float by another one. Redundant as the division operator (/) does the same thing.</summary>   <seealso name="floatadd"/> <seealso name="floatsub"/> <seealso name="floatmul"/> <returns>The quotient of the two given floats.</returns>
+		</member>
+		<member name="M:floatmul" syntax="floatmul(oper1, oper2)">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="operator*(Float:,_:)"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+				First Float
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+				Second Float, the first one gets multiplied with
+			</param>
+			<summary>Multiplies two floats with each other.</summary>   <seealso name="floatadd"/> <seealso name="floatsub"/> <seealso name="floatdiv"/> <returns>The product of the two given floats.</returns>
+		</member>
+		<member name="M:floatstr" syntax="floatstr(string[])">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="dini_Float"/>
+			<referrer name="OnDialogResponse"/>
+			<param name="string">
+				<paraminfo> [] </paraminfo>
+				The string to convert into a float
+			</param>
+			<summary>Converts a string to a float.</summary>  <seealso name="floatround"/> <seealso name="float"/> <returns>The requested float value.</returns>
+		</member>
+		<member name="M:floatsub" syntax="floatsub(oper1, oper2)">
+			<tagname value="Float"/>
+			<attribute name="native"/>
+			<referrer name="operator-(Float:,_:)"/>
+			<referrer name="operator-(_:,Float:)"/>
+			<param name="oper1">
+				<paraminfo>Float </paraminfo>
+				First Float
+			</param>
+			<param name="oper2">
+				<paraminfo>Float </paraminfo>
+				Second Float (gets subtracted from the first float.)
+			</param>
+			<summary>Subtracts one float from another one. Note that this function has no real use, as one can simply use the standard operator (-) instead.</summary>   <seealso name="floatadd"/> <seealso name="floatmul"/> <seealso name="floatdiv"/> <returns>The difference of the two given floats.</returns>
+		</member>
+		<member name="M:fopen" syntax="fopen(name[], mode)">
+			<tagname value="File"/>
+			<attribute name="native"/>
+			<referrer name="dini_Create"/>
+			<referrer name="dini_Set"/>
+			<referrer name="dini_Unset"/>
+			<referrer name="dini_Get"/>
+			<referrer name="dini_Isset"/>
+			<referrer name="DINI_fcopytextfile"/>
+			<referrer name="ShowTextDrawDialog"/>
+			<referrer name="CreateNewProject"/>
+			<referrer name="ExportProject"/>
+			<referrer name="GetFileNameFromLst"/>
+			<referrer name="DeleteLineFromFile"/>
+			<referrer name="fcopytextfile"/>
+			<param name="name">
+				<paraminfo> [] </paraminfo>
+				The path to the file to open (if just a filename is specified, it will open the file with the name specified in the 'scriptfiles' folder)
+			</param>
+			<param name="mode">
+				<paraminfo>filemode </paraminfo>
+				The mode to open the file with, see below (optional=<b><c>io_readwrite</c></b>)
+			</param>
+			<summary>Open a file (to read from or write to).</summary>   <remarks>This function can't access files outside the 'scriptfiles' folder!</remarks> <remarks>If you use <a href="#io_read">io_read</a> and the file doesn't exist, it will return a <b><c>NULL</c></b> reference. Using <b>invalid references</b> on file functions will <b>crash</b> your server!</remarks> <remarks> <b>Modes:</b><p/> <ul> <li><b><c>io_read</c></b> - reads from the file.</li> <li><b><c>io_write</c></b> - write in the file, or create the file if it does not exist. Erases all existing contents.</li> <li><b><c>io_readwrite</c></b> - reads the file or creates it if it doesn't already exist.</li> <li><b><c>io_append</c></b> - appends (adds) to file, write-only. If the file does not exist, it is created.</li> </ul> </remarks> <returns>Returns the file handle. This handle is used for reading and writing. <b><c>0</c></b> if failed to open file.</returns>
+		</member>
+		<member name="M:format" syntax="format(output[], len, format[], ...)">
+			<attribute name="native"/>
+			<referrer name="dini_Set"/>
+			<referrer name="dini_IntSet"/>
+			<referrer name="dini_FloatSet"/>
+			<referrer name="dini_Unset"/>
+			<referrer name="DINI_fcopytextfile"/>
+			<referrer name="OnDialogResponse"/>
+			<referrer name="ShowTextDrawDialog"/>
+			<referrer name="CreateDialogTitle"/>
+			<referrer name="KeyEdit"/>
+			<referrer name="OnPlayerKeyStateChange"/>
+			<referrer name="CreateNewProject"/>
+			<referrer name="CreateDefaultTextdraw"/>
+			<referrer name="DuplicateTextdraw"/>
+			<referrer name="DeleteTDFromFile"/>
+			<referrer name="SaveTDData"/>
+			<referrer name="LoadProject"/>
+			<referrer name="ExportProject"/>
+			<referrer name="DeleteLineFromFile"/>
+			<referrer name="fcopytextfile"/>
+			<param name="output">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="len">
+			</param>
+			<param name="format">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="...">
+				<paraminfo> {Float,_} </paraminfo>
+			</param>
+		</member>
+		<member name="M:fread" syntax="fread(handle, string[], size, pack)">
+			<attribute name="native"/>
+			<referrer name="dini_Set"/>
+			<referrer name="dini_Unset"/>
+			<referrer name="dini_Get"/>
+			<referrer name="dini_Isset"/>
+			<referrer name="DINI_fcopytextfile"/>
+			<referrer name="ShowTextDrawDialog"/>
+			<referrer name="GetFileNameFromLst"/>
+			<referrer name="DeleteLineFromFile"/>
+			<referrer name="fcopytextfile"/>
+			<param name="handle">
+				<paraminfo>File </paraminfo>
+				The handle of the file to read from (returned by <a href="#fopen">fopen</a>)
+			</param>
+			<param name="string">
+				<paraminfo> [] </paraminfo>
+				A string array to store the read text in, passed by reference
+			</param>
+			<param name="size">
+				The number of bytes to read (optional=<b><c>sizeof string</c></b>)
+			</param>
+			<param name="pack">
+				<paraminfo>bool </paraminfo>
+				Should the string be packed? (optional=<b><c>false</c></b>)
+			</param>
+			<summary>Read a single line from a file.</summary>     <remarks>Using an <b>invalid handle</b> will crash your server! Get a <b>valid handle</b> by using <a href="#fopen">fopen</a> or <a href="#ftemp">ftemp</a>.</remarks> <returns>The length of <b>string</b> (the read text) as an integer.</returns>
+		</member>
+		<member name="M:fremove" syntax="fremove(name[])">
+			<tagname value="bool"/>
+			<attribute name="native"/>
+			<referrer name="dini_Remove"/>
+			<referrer name="dini_Set"/>
+			<referrer name="dini_Unset"/>
+			<referrer name="OnDialogResponse"/>
+			<referrer name="DeleteLineFromFile"/>
+			<param name="name">
+				<paraminfo> [] </paraminfo>
+				The <b>path</b> of the file to delete. (NOTE: NOT a file handle)
+			</param>
+			<summary>Delete a file.</summary>  <remarks>The file path must be valid.</remarks> <remarks>Files that are currently open (<a href="#fopen">fopen</a>) must be closed first (<a href="#fclose">fclose</a>) to be deleted.</remarks> <returns> <b><c>true</c></b>: The function executed successfully.<p/> <b><c>false</c></b>: The function failed to execute. The file doesn't exist, or you don't have permission to delete it. </returns>
+		</member>
+		<member name="M:fwrite" syntax="fwrite(handle, string[])">
+			<attribute name="native"/>
+			<referrer name="dini_Set"/>
+			<referrer name="dini_Unset"/>
+			<referrer name="DINI_fcopytextfile"/>
+			<referrer name="CreateNewProject"/>
+			<referrer name="ExportProject"/>
+			<referrer name="DeleteLineFromFile"/>
+			<referrer name="fcopytextfile"/>
+			<param name="handle">
+				<paraminfo>File </paraminfo>
+				The handle of the file to write to (returned by <a href="#fopen">fopen</a>)
+			</param>
+			<param name="string">
+				<paraminfo> [] </paraminfo>
+				The string of text to write in to the file
+			</param>
+			<summary>Write text into a file.</summary>   <remarks>Using an <b>invalid handle</b> will crash your server! Get a <b>valid handle</b> by using <a href="#fopen">fopen</a> or <a href="#ftemp">ftemp</a>.</remarks> <remarks>This functions writes to the file in UTF-8, which does not support some localized language symbols.</remarks> <remarks>This function doesn't support <a href="#strpack">packed strings</a>.</remarks> <returns>The length of the written string as an integer.</returns>
+		</member>
+		<member name="M:getdate" syntax="getdate(&amp;year, &amp;month, &amp;day)">
+			<attribute name="native"/>
+			<referrer name="ExportProject"/>
+			<param name="year">
+				<paraminfo> &amp; </paraminfo>
+				The variable to store the year in, passed by reference (optional=<b><c>0</c></b>)
+			</param>
+			<param name="month">
+				<paraminfo> &amp; </paraminfo>
+				The variable to store the month in, passed by reference (optional=<b><c>0</c></b>)
+			</param>
+			<param name="day">
+				<paraminfo> &amp; </paraminfo>
+				The variable to store the day in, passed by reference (optional=<b><c>0</c></b>)
+			</param>
+			<summary>Get the current server date.</summary>    <seealso name="gettime"/> <returns>The number of days since the start of the year.</returns>
+		</member>
+		<member name="M:gettime" syntax="gettime(&amp;hour, &amp;minute, &amp;second)">
+			<attribute name="native"/>
+			<referrer name="ExportProject"/>
+			<param name="hour">
+				<paraminfo> &amp; </paraminfo>
+				The variable to store the hour in, passed by reference (optional=<b><c>0</c></b>)
+			</param>
+			<param name="minute">
+				<paraminfo> &amp; </paraminfo>
+				The variable to store the minute in, passed by reference (optional=<b><c>0</c></b>)
+			</param>
+			<param name="second">
+				<paraminfo> &amp; </paraminfo>
+				The variable to store the seconds in, passed by reference (optional=<b><c>0</c></b>)
+			</param>
+			<summary>Get the current server time.</summary>    <seealso name="getdate"/> <returns>The function itself returns a Unix Timestamp.</returns>
+		</member>
+		<member name="M:print" syntax="print(string[])">
+			<attribute name="native"/>
+			<referrer name="OnFilterScriptInit"/>
+			<param name="string">
+				<paraminfo> [] </paraminfo>
+			</param>
+		</member>
+		<member name="M:printf" syntax="printf(format[], ...)">
+			<attribute name="native"/>
+			<referrer name="ExportProject"/>
+			<param name="format">
+				<paraminfo> [] </paraminfo>
+			</param>
+			<param name="...">
+				<paraminfo> {Float,_} </paraminfo>
+			</param>
+		</member>
+		<member name="M:strcat" syntax="strcat(dest[], source[], maxlength)">
+			<attribute name="native"/>
+			<referrer name="strcopy"/>
+			<param name="dest">
+				<paraminfo> [] </paraminfo>
+				The string to store the two concatenated strings in
+			</param>
+			<param name="source">
+				<paraminfo> [] </paraminfo>
+				The source string
+			</param>
+			<param name="maxlength">
+				The maximum length of the destination (optional=<b><c>sizeof dest</c></b>)
+			</param>
+			<summary>This function concatenates (joins together) two strings into the destination string.</summary>    <seealso name="strcmp"/> <seealso name="strfind"/> <seealso name="strtok"/> <seealso name="strdel"/> <seealso name="strins"/> <seealso name="strlen"/> <seealso name="strmid"/> <seealso name="strpack"/> <seealso name="strval"/> <returns>The length of the new destination string.</returns>
+		</member>
+		<member name="M:strcmp" syntax="strcmp(string1[], string2[], ignorecase, length)">
+			<attribute name="native"/>
+			<referrer name="strequal"/>
+			<referrer name="dini_Set"/>
+			<referrer name="dini_Unset"/>
+			<referrer name="dini_Get"/>
+			<referrer name="dini_Isset"/>
+			<referrer name="OnPlayerCommandText"/>
+			<referrer name="OnDialogResponse"/>
+			<referrer name="CreateDialogTitle"/>
+			<referrer name="SaveTDData"/>
+			<param name="string1">
+				<paraminfo> [] </paraminfo>
+				The first string to compare
+			</param>
+			<param name="string2">
+				<paraminfo> [] </paraminfo>
+				The second string to compare
+			</param>
+			<param name="ignorecase">
+				<paraminfo>bool </paraminfo>
+				When set to true, the case doesn't matter - HeLLo is the same as Hello. When false, they're not the same (optional=<b><c>0</c></b>)
+			</param>
+			<param name="length">
+				When this length is set, the first x chars will be compared - doing "Hello" and "Hell No" with a length of 4 will say it's the same string (optional=<b><c>cellmax</c></b>)
+			</param>
+			<summary>Compares two strings to see if they are the same.</summary>     <seealso name="strfind"/> <seealso name="strtok"/> <seealso name="strdel"/> <seealso name="strins"/> <seealso name="strlen"/> <seealso name="strmid"/> <seealso name="strpack"/> <seealso name="strval"/> <seealso name="strcat"/> <seealso name="strequal"/> <remarks>This function returns <b><c>0</c></b> if either string is empty. Check for null strings with <c>isnull()</c>. If you do not, for example, people can login to anyone's account by simply entering a blank password. </remarks> <remarks> <code> #if !defined isnull<p/> &#9;#define isnull(%1) ((!(%1[0])) || (((%1[0]) == '\1') &amp;&amp; (!(%1[1]))))<p/> #endif </code> </remarks> <remarks>If you compare strings from a text file, you should take in to account the 'carriage return' and 'new line' special characters (\r \n), as they are included, when using fread.</remarks> <returns> <b><c>0</c></b> if strings match each other on given length;.<p/> <b><c>1</c></b> or <b><c>-1</c></b> if some character do not match: <c>string1[i] - string2[i]</c>.<p/> <b>difference in number of characters</b> if one string matches only part of another string. </returns>
+		</member>
+		<member name="M:strcopy" syntax="strcopy(dest[], source[], maxlength)">
+			<stacksize value="5"/>
+			<dependency name="EOS"/>
+			<dependency name="strcat"/>
+			<param name="dest">
+				<paraminfo> [] </paraminfo>
+				The string to copy the source string into
+			</param>
+			<param name="source">
+				<paraminfo> [] </paraminfo>
+				The source string
+			</param>
+			<param name="maxlength">
+				The maximum length of the destination (optional=<b><c>sizeof dest</c></b>)
+			</param>
+			<summary>Copies a string into the destination string.</summary>    <seealso name="strcat"/> <returns>The length of the new destination string.</returns>
+		</member>
+		<member name="M:strequal" syntax="strequal(string1[], string2[], ignorecase, length)">
+			<tagname value="bool"/>
+			<stacksize value="6"/>
+			<dependency name="strcmp"/>
+			<param name="string1">
+				<paraminfo> [] </paraminfo>
+				The first string to compare
+			</param>
+			<param name="string2">
+				<paraminfo> [] </paraminfo>
+				The second string to compare
+			</param>
+			<param name="ignorecase">
+				<paraminfo>bool </paraminfo>
+				When set to true, the case doesn't matter - HeLLo is the same as Hello. When false, they're not the same (optional=<b><c>0</c></b>)
+			</param>
+			<param name="length">
+				When this length is set, the first x chars will be compared - doing "Hello" and "Hell No" with a length of 4 will say it's the same string (optional=<b><c>cellmax</c></b>)
+			</param>
+			<summary>Compares two strings to see if they are the same.</summary>     <seealso name="strcmp"/> <remarks>This is a conveniece function that depends on <a href="#strcmp">strcmp</a>.</remarks> <returns><b><c>true</c></b> if the strings match each other on given length, <b><c>false</c></b> otherwise.</returns>
+		</member>
+		<member name="M:strfind" syntax="strfind(string[], sub[], ignorecase, pos)">
+			<attribute name="native"/>
+			<referrer name="OnDialogResponse"/>
+			<param name="string">
+				<paraminfo> [] </paraminfo>
+				The string you want to search in (haystack)
+			</param>
+			<param name="sub">
+				<paraminfo> [] </paraminfo>
+				The string you want to search for (needle)
+			</param>
+			<param name="ignorecase">
+				<paraminfo>bool </paraminfo>
+				When set to true, the case doesn't matter - HeLLo is the same as Hello. When false, they're not the same (optional=<b><c>0</c></b>)
+			</param>
+			<param name="pos">
+				The offset to start searching from (optional=<b><c>0</c></b>)
+			</param>
+			<summary>Search for a sub string in a string.</summary>     <seealso name="strcmp"/> <seealso name="strtok"/> <seealso name="strdel"/> <seealso name="strins"/> <seealso name="strlen"/> <seealso name="strmid"/> <seealso name="strpack"/> <seealso name="strval"/> <seealso name="strcat"/> <returns>The number of characters before the sub string (the sub string's start position) or <b><c>-1</c></b> if it's not found.</returns>
+		</member>
+		<member name="M:strlen" syntax="strlen(string[])">
+			<attribute name="native"/>
+			<referrer name="dini_Set"/>
+			<referrer name="dini_Unset"/>
+			<referrer name="dini_Get"/>
+			<referrer name="dini_Isset"/>
+			<referrer name="DINI_StripNewLine"/>
+			<referrer name="OnPlayerCommandText"/>
+			<referrer name="OnDialogResponse"/>
+			<referrer name="ShowTextDrawDialog"/>
+			<referrer name="CreateDialogTitle"/>
+			<referrer name="LoadProject"/>
+			<referrer name="GetFileNameFromLst"/>
+			<referrer name="StripNewLine"/>
+			<referrer name="IsNumeric2"/>
+			<referrer name="HexToInt"/>
+			<param name="string">
+				<paraminfo> [] </paraminfo>
+				The string to get the length of
+			</param>
+			<summary>Get the length of a string.</summary>  <seealso name="strcmp"/> <seealso name="strfind"/> <seealso name="strtok"/> <seealso name="strdel"/> <seealso name="strins"/> <seealso name="strmid"/> <seealso name="strpack"/> <seealso name="strval"/> <seealso name="strcat"/> <returns>The length of the string as an integer.</returns>
+		</member>
+		<member name="M:strmid" syntax="strmid(dest[], source[], start, end, maxlength)">
+			<attribute name="native"/>
+			<referrer name="dini_Get"/>
+			<referrer name="OnDialogResponse"/>
+			<referrer name="ShowTextDrawDialog"/>
+			<referrer name="ResetPlayerVars"/>
+			<referrer name="ClearTextdraw"/>
+			<referrer name="LoadProject"/>
+			<referrer name="GetFileNameFromLst"/>
+			<param name="dest">
+				<paraminfo> [] </paraminfo>
+				The string to store the extracted characters in
+			</param>
+			<param name="source">
+				<paraminfo> [] </paraminfo>
+				The string from which to extract characters
+			</param>
+			<param name="start">
+				The position of the first character
+			</param>
+			<param name="end">
+				The position of the last character
+			</param>
+			<param name="maxlength">
+				The length of the destination. (optional=<b><c>sizeof dest</c></b>)
+			</param>
+			<summary>Extract a range of characters from a string.</summary>      <seealso name="strcmp"/> <seealso name="strfind"/> <seealso name="strtok"/> <seealso name="strdel"/> <seealso name="strins"/> <seealso name="strlen"/> <seealso name="strpack"/> <seealso name="strval"/> <seealso name="strcat"/> <returns>The number of characters stored in dest[].</returns>
+		</member>
+		<member name="M:strval" syntax="strval(string[])">
+			<attribute name="native"/>
+			<referrer name="dini_Int"/>
+			<referrer name="dini_Bool"/>
+			<referrer name="OnDialogResponse"/>
+			<param name="string">
+				<paraminfo> [] </paraminfo>
+				The string you want to convert to an integer
+			</param>
+			<summary>Convert a string to an integer.</summary>  <seealso name="strcmp"/> <seealso name="strfind"/> <seealso name="strtok"/> <seealso name="strdel"/> <seealso name="strins"/> <seealso name="strlen"/> <seealso name="strmid"/> <seealso name="strpack"/> <seealso name="strcat"/> <returns>The integer value of the string. <b><c>0</c></b> if the string is not numeric.</returns>
+		</member>
+
+	</members>
+</doc>

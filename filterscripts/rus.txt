@@ -1,0 +1,8 @@
+C:\Users\serve\Desktop\Texture-Studio-1.9d-reup\filterscripts\tstudio.pwn(236) : ๔เ๒เ๋ํเ ๎๘่แ๊เ 100: ํๅโ๎็์๎ๆํ๎ ๏๐๎๗ๅ๑๒ ๔เ้๋: "sqlitei"
+
+ส๎์๏่๋๖่ ๎๑๒เํ๎โ๋ๅํเ.
+
+Pawn compiler 3.2.3664	 	 	Copyright (c) 1997-2016, ITB CompuPhase
+
+
+ฮ๘่แ๎๊:1.
